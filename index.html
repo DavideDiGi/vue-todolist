@@ -39,8 +39,8 @@
 
                 <ul v-if="tasks.length > 0">
 
-                    <li class="task"  v-for="(element, index) in tasks" v-bind:class="{'line-through': tasks.done}">                     
-                        <span @click="taskDone(index)">{{ element.text }}</span>
+                    <li class="task"  v-for="(element, index) in tasks" v-bind:class="checkDone(element)">                     
+                        <span @click="taskDone(element)">{{ element.text }}</span>
                         <i class="fas fa-times" @click="removeTask(index)"></i>
                     </li>
 

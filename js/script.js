@@ -9,7 +9,7 @@ createApp({
             tasks: [
                 { 
                     text: "Passare l'aspirapolvere", 
-                    done: true 
+                    done: false 
                 },
                 { 
                     text: 'Portare fuori il cane', 
@@ -23,10 +23,6 @@ createApp({
                     text: 'Allenamento leggero', 
                     done: false 
                 },
-                // "Passare l'aspirapolvere",
-                // 'Portare fuori il cane',
-                // 'Esercitarsi nel coding',
-                // 'Allenamento leggero'
             ]
         };
 
@@ -47,8 +43,21 @@ createApp({
         removeTask(index) {
             this.tasks.splice(index, 1);
         },
-        taskDone(index) {
-            this.tasks.done = true;
+        checkDone: function (element) {
+            if (element.done == true) {
+                return 'line-through';
+            }
+            else{
+                return '';
+            }
+        },
+        taskDone(element) {
+            if (element.done == false) {
+                element.done = true;
+            }
+            else{
+                element.done = false;
+            }
         }
         
     
